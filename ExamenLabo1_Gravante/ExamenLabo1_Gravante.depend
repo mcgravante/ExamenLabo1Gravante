@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1558051212 source:/home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/Instrumento.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Instrumento.h"
+
+1558044198 /home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/utn_funciones.h
+
+1558047116 /home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/Instrumento.h
+
+1558051225 source:/home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/Musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Musico.h"
+	"Instrumento.h"
+
+1558050267 /home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/Musico.h
+	"Instrumento.h"
+
+1558049024 source:/home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/Orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Orquesta.h"
+
+1558047115 /home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/Orquesta.h
+
+1558044198 source:/home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/utn_funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_funciones.h"
+
+1558049985 source:/home/alumno/Escritorio/Gravante/ExamenLabo1_Gravante/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Orquesta.h"
+	"Musico.h"
+	"Instrumento.h"
+
