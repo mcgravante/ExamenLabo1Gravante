@@ -13,7 +13,7 @@
 int main()
 {
     int opcion;
-    char aceptar [TEXT_SIZE]="";
+    char aceptar;
     int contadorIdOrquesta=0;
     int contadorIdMusico=0;
     int contadorIdInstrumento=0;
@@ -44,12 +44,13 @@ int main()
                         instrumento_alta(arrayInstrumento,INSTRUMENTO_CANT,&contadorIdInstrumento);
                         break;
                     case 3:
-                        utn_getChar("\nDEBE DAR DE ALTA SU INSTRUMENTO PRIMERO, CONTINUAR? S/N","\nError",'A','Z',1,aceptar);
-                        if(strcmp(aceptar,"S"))
+                        utn_getChar("\nDEBE DAR DE ALTA SU INSTRUMENTO PRIMERO, CONTINUAR? S/N","\nError",'A','Z',1,&aceptar);
+                        if(strcmp(&aceptar, "S")==1)
                         {
                             musico_alta(arrayMusico,MUSICO_CANT,&contadorIdMusico,arrayInstrumento);
                             break;
                         }
+                        printf("ERROR");
                         break;
                     case 4:
                         break;
