@@ -45,3 +45,49 @@
 	"Musico.h"
 	"Instrumento.h"
 
+1558052065 source:/home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/Instrumento.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Instrumento.h"
+
+1558052065 /home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/utn_funciones.h
+
+1558052065 /home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/Instrumento.h
+
+1558053223 source:/home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Orquesta.h"
+	"Musico.h"
+	"Instrumento.h"
+
+1558052065 /home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/Orquesta.h
+
+1558052065 /home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/Musico.h
+	"Instrumento.h"
+
+1558053805 source:/home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/Musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Musico.h"
+	"Instrumento.h"
+
+1558053699 source:/home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/Orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Orquesta.h"
+
+1558052065 source:/home/alumno/Escritorio/GravanteExamenLabo1/ExamenLabo1Gravante/ExamenLabo1_Gravante/utn_funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_funciones.h"
+

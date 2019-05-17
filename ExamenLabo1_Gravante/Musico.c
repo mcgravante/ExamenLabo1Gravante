@@ -215,6 +215,7 @@ int musico_baja(Musico array[], int sizeArray)                                  
     int id;
     if(array!=NULL && sizeArray>0)
     {
+        musico_listar(array,sizeArray);
         utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
         if(musico_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
