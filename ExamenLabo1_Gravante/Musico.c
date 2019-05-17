@@ -335,8 +335,7 @@ int musico_ordenarPorString(Musico array[],int size)                            
     int bufferIsEmpty;
 
     int bufferEdad;
-    int bufferIdOrquesta;                                              //cambiar buffer int
-    int bufferIdInstrumento;                                              //cambiar buffer int
+                                             //cambiar buffer int
                                               //cambiar buffer int
     char bufferApellido[TEXT_SIZE];                           //cambiar campo apellido
 
