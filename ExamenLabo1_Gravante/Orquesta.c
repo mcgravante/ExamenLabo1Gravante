@@ -2,7 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn_funciones.h"
-#include "Orquesta.h" //cambiar por nombre entidad
+#include "Orquesta.h"
+#include "Musico.h"
+
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -13,7 +15,7 @@
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 *
 */
-int orquesta_Inicializar(Orquesta array[], int size)                                    //cambiar orquesta
+int orquesta_Inicializar(Orquesta array[], int size)
 {
     int retorno=-1;
     if(array!= NULL && size>0)
@@ -184,10 +186,10 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)                  
                     return retorno;
             }
             array[posicion].tipo=bufferTipo;
-            utn_getName("Nombre:\n ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
-            utn_getName("Ubicación:\n ","\nError",1,TEXT_SIZE,1,array[posicion].lugar);                 //mensaje + cambiar campo lugar
-            printf("\n Posicion: %d\n ID: %d\n tipo: %s\n nombre: %s\n lugar: %s",
-                posicion, array[posicion].idOrquesta,tipoOrquesta,array[posicion].nombre,array[posicion].lugar);
+            utn_getName("Nombre:\n ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);
+            utn_getName("Ubicación:\n ","\nError",1,TEXT_SIZE,1,array[posicion].lugar);
+            /*printf("\n Posicion: %d\n ID: %d\n tipo: %s\n nombre: %s\n lugar: %s",
+                posicion, array[posicion].idOrquesta,tipoOrquesta,array[posicion].nombre,array[posicion].lugar);*/
                 retorno=0;
         }
     }
@@ -202,26 +204,24 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)                  
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int orquesta_baja(Orquesta array[], int sizeArray)                                      //cambiar orquesta
+int orquesta_baja(Orquesta arrayOrquesta[], int sizeArrayOrquesta, Musico arrayMusico[], int sizeArrayMusico)
 {
     int retorno=-1;
     int posicion;
-    int id;
-    if(array!=NULL && sizeArray>0)
+    int idOrquesta;
+    if(arrayOrquesta!=NULL && sizeArrayOrquesta>0)
     {
-        orquesta_listar(array, sizeArray);
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
-        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        orquesta_listar(arrayOrquesta, sizeArrayOrquesta);
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArrayOrquesta,1,&idOrquesta);
+        if(orquesta_buscarID(arrayOrquesta,sizeArrayOrquesta,idOrquesta,&posicion)==-1)
         {
-            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
+            printf("\nNo existe este ID");
         }
         else
         {
-            array[posicion].isEmpty=1;
-            array[posicion].idOrquesta=0;                                                                   //cambiar campo id
-            array[posicion].tipo=0;                                                               //cambiar campo tipo
-            strcpy(array[posicion].nombre,"");                                                   //cambiar campo nombre
-            strcpy(array[posicion].lugar,"");                                               //cambiar campo lugar
+            musico_bajaValorRepetidoInt(arrayMusico,sizeArrayMusico,idOrquesta);
+            arrayOrquesta[posicion].isEmpty=1;
+
             retorno=0;
         }
     }

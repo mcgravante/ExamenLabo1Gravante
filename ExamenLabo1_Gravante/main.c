@@ -13,11 +13,10 @@
 int main()
 {
     int opcion;
-    char aceptar;
+    int aceptar;
     int contadorIdOrquesta=0;
     int contadorIdMusico=0;
     int contadorIdInstrumento=0;
-               //cambiar
 
     Orquesta arrayOrquesta[ORQUESTA_CANT];
     orquesta_Inicializar(arrayOrquesta,ORQUESTA_CANT);
@@ -38,16 +37,20 @@ int main()
                 switch(opcion)
                 {
                     case 1:
-                        orquesta_alta(arrayOrquesta,ORQUESTA_CANT,&contadorIdOrquesta);
+                        if(!orquesta_alta(arrayOrquesta,ORQUESTA_CANT,&contadorIdOrquesta))
+                        {
+                            printf("Alta OK. Id de orquesta: %d\n", contadorIdOrquesta);
+                        }
                         break;
                     case 2:
                         instrumento_alta(arrayInstrumento,INSTRUMENTO_CANT,&contadorIdInstrumento);
                         break;
                     case 3:
-                        utn_getChar("\nDEBE DAR DE ALTA SU INSTRUMENTO PRIMERO, CONTINUAR? S/N","\nError",'A','Z',1,&aceptar);
-                        if(strcmp(&aceptar, "S")==1)
+                        utn_getUnsignedInt("\nDEBE DAR DE ALTA SU INSTRUMENTO PRIMERO, CONTINUAR? 1)Si 2)No","\nError",1,sizeof(int),1,2,1,&aceptar);
+                        if(aceptar== 1)
                         {
-                            musico_alta(arrayMusico,MUSICO_CANT,&contadorIdMusico,arrayInstrumento);
+                            musico_alta(arrayMusico,MUSICO_CANT,&contadorIdMusico,
+                                        arrayInstrumento, INSTRUMENTO_CANT, arrayOrquesta,ORQUESTA_CANT);
                             break;
                         }
                         printf("ERROR");
@@ -80,13 +83,13 @@ int main()
                 switch(opcion)
                 {
                     case 1:
-                        orquesta_baja(arrayOrquesta,ORQUESTA_CANT);
+                        orquesta_baja(arrayOrquesta,ORQUESTA_CANT, arrayMusico, MUSICO_CANT);
                         break;
                     case 2:
                         instrumento_baja(arrayInstrumento,INSTRUMENTO_CANT);
                         break;
                     case 3:
-                        musico_baja(arrayMusico,MUSICO_CANT);
+                        musico_baja(arrayMusico,MUSICO_CANT, arrayInstrumento, INSTRUMENTO_CANT);
                         break;
                     case 4:
                         break;
@@ -107,7 +110,7 @@ int main()
                         instrumento_listar(arrayInstrumento,INSTRUMENTO_CANT);
                         break;
                     case 3:
-                        musico_listar(arrayMusico,MUSICO_CANT);
+                        musico_listar(arrayMusico,MUSICO_CANT, arrayInstrumento, INSTRUMENTO_CANT);
                         break;
                     case 4:
                         break;

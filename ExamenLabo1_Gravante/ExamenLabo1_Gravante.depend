@@ -91,3 +91,52 @@
 	<string.h>
 	"utn_funciones.h"
 
+1558395808 source:/home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/Instrumento.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Instrumento.h"
+
+1558395808 /home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/utn_funciones.h
+
+1558395808 /home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/Instrumento.h
+
+1558407750 source:/home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Orquesta.h"
+	"Musico.h"
+	"Instrumento.h"
+
+1558403220 /home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/Orquesta.h
+	"Musico.h"
+
+1558407737 /home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/Musico.h
+	"Orquesta.h"
+	"Instrumento.h"
+
+1558408107 source:/home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/Musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Musico.h"
+	"Instrumento.h"
+
+1558403511 source:/home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/Orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn_funciones.h"
+	"Orquesta.h"
+	"Musico.h"
+
+1558398617 source:/home/mgravante/apps/utn/ExamenLabo1Gravante/ExamenLabo1_Gravante/utn_funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn_funciones.h"
+

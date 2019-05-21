@@ -553,14 +553,13 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
             {
                 if(isValidChar(bufferChar[0])==1)
                 {
-                    printf("OK");
                     *resultado=bufferChar[0];
                     retorno=0;
                     break;
                 }
                 else
                 {
-                    printf("%s 2",msgError);
+                    printf("%s, Reintentos: %d\n",msgError, reintentos);
                     reintentos--;
                 }
             }
