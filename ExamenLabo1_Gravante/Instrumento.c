@@ -18,7 +18,7 @@ int instrumento_Inicializar(Instrumento array[], int size)                      
     int retorno=-1;
     if(array!= NULL && size>0)
     {
-        for(;size>=0;size--)
+        for(; size>=0; size--)
         {
             array[size-1].isEmpty=1;
         }
@@ -43,7 +43,7 @@ int instrumento_buscarEmpty(Instrumento array[], int size, int* posicion)       
     int i;
     if(array!= NULL && size>=0 && posicion!=NULL)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
             {
@@ -69,7 +69,7 @@ int instrumento_buscarID(Instrumento array[], int size, int valorBuscado, int* p
     int i;
     if(array!= NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
@@ -96,7 +96,7 @@ int instrumento_buscarInt(Instrumento array[], int size, int valorBuscado, int* 
     int i;
     if(array!= NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
@@ -125,7 +125,7 @@ int instrumento_buscarString(Instrumento array[], int size, char* valorBuscado, 
     int i;
     if(array!=NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
@@ -168,24 +168,24 @@ int instrumento_alta(Instrumento array[], int size, int* contadorID)            
             array[posicion].isEmpty=0;
             utn_getName("\nNombre:\n ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);
             utn_getUnsignedInt("\nTipo de Instrumento: 1) Cuerdas  2) Viento-madera  3) Viento-metal  4) Percusión\n ",
-                        "\nError",1,sizeof(int),1,4,1,&bufferTipo);
+                               "\nError",1,sizeof(int),1,4,1,&bufferTipo);
             switch(bufferTipo)
             {
-                case 1:
-                    strcpy(tipoInstrumento, "Cuerdas");
-                    break;
-                case 2:
-                    strcpy(tipoInstrumento, "Viento-madera");
-                    break;
-                case 3:
-                    strcpy(tipoInstrumento, "Viento-metal");
-                    break;
-                case 4:
-                    strcpy(tipoInstrumento, "Percusión");
-                    break;
-                default:
-                    printf("Error");
-                    return retorno;
+            case 1:
+                strcpy(tipoInstrumento, "Cuerdas");
+                break;
+            case 2:
+                strcpy(tipoInstrumento, "Viento-madera");
+                break;
+            case 3:
+                strcpy(tipoInstrumento, "Viento-metal");
+                break;
+            case 4:
+                strcpy(tipoInstrumento, "Percusión");
+                break;
+            default:
+                printf("Error");
+                return retorno;
             }
             array[posicion].tipo=bufferTipo;
             printf("\n ID: %d\n tipo: %s\n nombre: %s\n",
@@ -242,7 +242,7 @@ int instrumento_bajaValorRepetidoInt(Instrumento array[], int sizeArray, int val
     int i;
     if(array!=NULL && sizeArray>0)
     {
-        for(i=0;i<sizeArray;i++)
+        for(i=0; i<sizeArray; i++)
         {
             if(array[i].idInstrumento==valorBuscado)                                                        //cambiar si no se busca por ID
             {
@@ -283,24 +283,26 @@ int instrumento_modificar(Instrumento array[], int sizeArray)                   
         else
         {
             do
-            {       //copiar printf de alta
+            {
+                //copiar printf de alta
                 printf("\n Posicion: %d\n ID: %d\n tipo: %d\n nombre: %s\n",
                        posicion, array[posicion].idInstrumento,array[posicion].tipo,array[posicion].nombre);
                 utn_getChar("\nModificar: A B S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
-                    case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipo);           //mensaje + cambiar campo tipo
-                        break;
-                    case 'B':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
-                        break;
-                    case 'S':
-                        break;
-                    default:
-                        printf("\nOpcion no valida");
+                case 'A':
+                    utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipo);           //mensaje + cambiar campo tipo
+                    break;
+                case 'B':
+                    utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
+                    break;
+                case 'S':
+                    break;
+                default:
+                    printf("\nOpcion no valida");
                 }
-            }while(opcion!='S');
+            }
+            while(opcion!='S');
             retorno=0;
         }
     }
@@ -338,7 +340,8 @@ int instrumento_ordenarPorString(Instrumento array[],int size)                  
 
             j = i - 1;
             while ((j >= 0) && strcmp(bufferNombre,array[j].nombre)<0)         //cambiar campo nombre                 //Si tiene mas de un criterio se lo agrego, Ej. bufferTipo<array[j].tipo
-            {                                                                                                               //buffer < campo ascendente   buffer > campo descendente
+            {
+                //buffer < campo ascendente   buffer > campo descendente
                 strcpy(array[j + 1].nombre,array[j].nombre);          //cambiar campo nombre
                 array[j + 1].idInstrumento=array[j].idInstrumento;                                //cambiar campo id
                 array[j + 1].isEmpty=array[j].isEmpty;
@@ -370,17 +373,46 @@ int instrumento_listar(Instrumento array[], int size)                      //cam
 {
     int retorno=-1;
     int i;
+    char tipoInstrumento [TEXT_SIZE];
     if(array!=NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n tipo: %d\n nombre: %s\n",
-                       array[i].idInstrumento,array[i].tipo,array[i].nombre);      //cambiar todos
+            {
+                instrumento_tipo(array,tipoInstrumento,&i);
+                printf("\n ID: %d\n tipo: %s\n nombre: %s\n",
+                       array[i].idInstrumento,tipoInstrumento,array[i].nombre);      //cambiar todos
+            }
         }
         retorno=0;
     }
     return retorno;
+}
+
+int instrumento_tipo(Instrumento array[],char* tipoInstrumento, int* indice)
+{
+    int auxTipoInstrumento;
+    auxTipoInstrumento=array[*indice].tipo;
+    switch(auxTipoInstrumento)
+    {
+    case 1:
+        strcpy(tipoInstrumento, "Cuerdas");
+        break;
+    case 2:
+        strcpy(tipoInstrumento, "Viento-madera");
+        break;
+    case 3:
+        strcpy(tipoInstrumento, "Viento-metal");
+        break;
+    case 4:
+        strcpy(tipoInstrumento, "Percusión");
+        break;
+    default:
+        strcpy(tipoInstrumento, "No definido");
+        break;
+    }
+    return 0;
 }

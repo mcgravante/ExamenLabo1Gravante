@@ -35,6 +35,8 @@ int isValidAlphanumeric(char* stringRecibido);
 int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, char* resultado);
 int isValidChar(char charRecibido);
 
+int utn_encontrarNumero (   int *pArrayInt,int limite,int numeroABuscar);
 
+int utn_inicializarArrayInt(int array[], int size) ;
 
 #endif // UTN_FUNCIONES_H_INCLUDED

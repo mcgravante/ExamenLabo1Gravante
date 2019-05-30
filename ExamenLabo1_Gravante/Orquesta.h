@@ -12,7 +12,7 @@ typedef struct
     int tipo;
     char lugar[TEXT_SIZE];
 
-}Orquesta;
+} Orquesta;
 
 #include "Musico.h"
 
@@ -30,4 +30,6 @@ int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBusc
 int orquesta_modificar(Orquesta array[], int sizeArray);
 int orquesta_ordenarPorString(Orquesta array[],int size);
 int orquesta_listar(Orquesta array[], int size);
+int orquesta_tipo(Orquesta array[],char* tipoOrquesta, int* indice);
+int orquesta_imprimirById(Orquesta array[],int sizeOrquesta, int id);
 

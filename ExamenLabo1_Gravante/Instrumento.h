@@ -12,7 +12,7 @@ typedef struct
     char nombre[TEXT_SIZE];
     int tipo;
 
-}Instrumento;
+} Instrumento;
 
 
 #endif // INSTRUMENTO_H_INCLUDED
@@ -28,3 +28,5 @@ int instrumento_bajaValorRepetidoInt(Instrumento array[], int sizeArray, int val
 int instrumento_modificar(Instrumento array[], int sizeArray);
 int instrumento_ordenarPorString(Instrumento array[],int size);
 int instrumento_listar(Instrumento array[], int size);
+int instrumento_tipo(Instrumento array[],char* tipoInstrumento, int* indice);
+

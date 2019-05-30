@@ -86,10 +86,11 @@ int isValidName(char* stringRecibido)   //si fuera un numero podrìa necesitar p
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         //printf("%d",i);
-        if(stringRecibido[i]<'A' || (stringRecibido[i]>'Z' && stringRecibido[i]<'a') || stringRecibido[i]>'z')// o ((stringRecibido[i]<'A' || (stringRecibido[i]>'Z') && (stringRecibido[i]<'a' || stringRecibido[i]>'z'))
+        if(stringRecibido[i]<'0' || (stringRecibido[i]>'9'&& stringRecibido[i]<'A') ||
+                (stringRecibido[i]>'Z' && stringRecibido[i]<'a') || stringRecibido[i]>'z')//Arreglo para examen
         {
             retorno=0;
             break;
@@ -132,7 +133,7 @@ int isValidNumber(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if(stringRecibido[i]<'0' || stringRecibido[i]>'9')
         {
@@ -176,7 +177,7 @@ int isValidSignedNumber(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if((stringRecibido[i]<'0' || stringRecibido[i]>'9') && (stringRecibido[0]!='+' && stringRecibido[0]!='-'))
         {
@@ -220,7 +221,7 @@ int isValidFloatNumber(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if((stringRecibido[i]<'0' || stringRecibido[i]>'9') && (stringRecibido[i]!='.'))
         {
@@ -264,7 +265,7 @@ int isValidTelephone(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if((stringRecibido[i]<'0' || stringRecibido[i]>'9') && (stringRecibido[i]!='-' || stringRecibido[i]!=' '))
         {
@@ -310,7 +311,7 @@ int isValidDNI(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if((stringRecibido[i]<'0' || stringRecibido[i]>'9') && (stringRecibido[i]!='.'))
         {
@@ -361,7 +362,7 @@ int isValidCUIT(char* stringRecibido)
     char buffer[14];
     strncpy(buffer,stringRecibido,14);
 
-    for(i=0;buffer[i]!='\0';i++)
+    for(i=0; buffer[i]!='\0'; i++)
     {
         if((buffer[i]<'0' || buffer[i]>'9') && (buffer[i]!='-')) // chequeo que solo sean numeros o -
         {
@@ -371,29 +372,29 @@ int isValidCUIT(char* stringRecibido)
 
         if(buffer[i]=='-')  //elimino los -
         {
-            for(j=i;buffer[j]!='\0';j++)
+            for(j=i; buffer[j]!='\0'; j++)
             {
                 strncpy(&buffer[j],&buffer[j+1],1);
             }
         }
     }
 
-    int digitos[10]={2,3,4,5,6,7,2,3,4,5};
+    int digitos[10]= {2,3,4,5,6,7,2,3,4,5};
     int acumulado = 0;
     int verificador;
 
-    for(i=0;i < strlen(buffer-1); i++)
+    for(i=0; i < strlen(buffer-1); i++)
     {
         acumulado+=buffer[i]*digitos[i];
     }
 
     verificador=11-(acumulado%11);
-	if(verificador == 11)
-	{
-		verificador = 0;
-	}
+    if(verificador == 11)
+    {
+        verificador = 0;
+    }
 
-	if(buffer[11]!=verificador)
+    if(buffer[11]!=verificador)
     {
         retorno=0;
     }
@@ -436,10 +437,10 @@ int isValidEmail(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if((stringRecibido[i]<'-' && stringRecibido[i]!='+') || (stringRecibido[i]>'9' && stringRecibido[i]<'@') ||
-           (stringRecibido[i]>'Z' && stringRecibido[i]!='_' && stringRecibido[i]<'a')|| stringRecibido[i]>'z')
+                (stringRecibido[i]>'Z' && stringRecibido[i]!='_' && stringRecibido[i]<'a')|| stringRecibido[i]>'z')
         {
             retorno=0;
             break;
@@ -482,7 +483,7 @@ int isValidTexto(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if(stringRecibido[i]<' ' || stringRecibido[i]>'z')
         {
@@ -527,7 +528,7 @@ int isValidAlphanumeric(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
-    for(i=0;stringRecibido[i]!='\0';i++)
+    for(i=0; stringRecibido[i]!='\0'; i++)
     {
         if(stringRecibido[i]<'0' || (stringRecibido[i]>'9' && stringRecibido[i]<'A') || (stringRecibido[i]>'Z' && stringRecibido[i]<'a') || stringRecibido[i]>'z' )
         {
@@ -574,5 +575,37 @@ int isValidChar(char charRecibido)
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     if(charRecibido<'A' || (charRecibido>'Z' && charRecibido<'a') || charRecibido>'z')
         retorno=0;
+    return retorno;
+}
+
+int utn_encontrarNumero (   int *pArrayInt,
+                            int limite,
+                            int numeroABuscar)
+{
+    int i;
+    for (i=0; i<limite; i++)
+    {
+        if (pArrayInt[i]==numeroABuscar)
+        {
+            //printf("Se encontró el número %d", numeroABuscar);
+            return 0;
+        }
+    }
+    //printf("No se encontró el número %d", numeroABuscar);
+    return -1;
+}
+
+int utn_inicializarArrayInt(int array[], int size)                                    //cambiar instrumento
+{
+    int retorno=-1;
+    int i;
+    if(array!= NULL && size>0)
+    {
+        for(i=0; i<size; i++)
+        {
+            array[i]=0;
+        }
+        retorno=0;
+    }
     return retorno;
 }

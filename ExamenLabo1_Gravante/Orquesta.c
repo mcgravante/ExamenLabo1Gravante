@@ -20,7 +20,7 @@ int orquesta_Inicializar(Orquesta array[], int size)
     int retorno=-1;
     if(array!= NULL && size>0)
     {
-        for(;size>=0;size--)
+        for(; size>=0; size--)
         {
             array[size-1].isEmpty=1;
         }
@@ -45,7 +45,7 @@ int orquesta_buscarEmpty(Orquesta array[], int size, int* posicion)             
     int i;
     if(array!= NULL && size>=0 && posicion!=NULL)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
             {
@@ -71,7 +71,7 @@ int orquesta_buscarID(Orquesta array[], int size, int valorBuscado, int* posicio
     int i;
     if(array!= NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
@@ -98,7 +98,7 @@ int orquesta_buscarInt(Orquesta array[], int size, int valorBuscado, int* posici
     int i;
     if(array!= NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
@@ -127,11 +127,11 @@ int orquesta_buscarString(Orquesta array[], int size, char* valorBuscado, int* i
     int i;
     if(array!=NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(strcmp(array[i].nombre,valorBuscado)==0)                                        //cambiar campo nombre
+            else if(strcmp(array[i].lugar,valorBuscado)==0)                                        //cambiar campo nombre
             {
                 *indice=i;
                 retorno=0;
@@ -169,28 +169,28 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)                  
             array[posicion].idOrquesta=*contadorID;                                                       //campo ID
             array[posicion].isEmpty=0;
             utn_getUnsignedInt("\nTipo de Orquesta: 1) Sinfónica 2) Filarmónica 3) Cámara\n",
-                        "\nError",1,sizeof(int),1,3,2,&bufferTipo);
+                               "\nError",1,sizeof(int),1,3,2,&bufferTipo);
             switch(bufferTipo)
             {
-                case 1:
-                    strcpy(tipoOrquesta, "Sinfónica");
-                    break;
-                case 2:
-                    strcpy(tipoOrquesta, "Filarmónica");
-                    break;
-                case 3:
-                    strcpy(tipoOrquesta, "Cámara");
-                    break;
-                default:
-                    printf("Error");
-                    return retorno;
+            case 1:
+                strcpy(tipoOrquesta, "Sinfónica");
+                break;
+            case 2:
+                strcpy(tipoOrquesta, "Filarmónica");
+                break;
+            case 3:
+                strcpy(tipoOrquesta, "Cámara");
+                break;
+            default:
+                printf("Error");
+                return retorno;
             }
             array[posicion].tipo=bufferTipo;
             utn_getName("Nombre:\n ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);
             utn_getName("Ubicación:\n ","\nError",1,TEXT_SIZE,1,array[posicion].lugar);
             /*printf("\n Posicion: %d\n ID: %d\n tipo: %s\n nombre: %s\n lugar: %s",
                 posicion, array[posicion].idOrquesta,tipoOrquesta,array[posicion].nombre,array[posicion].lugar);*/
-                retorno=0;
+            retorno=0;
         }
     }
     return retorno;
@@ -242,7 +242,7 @@ int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBusc
     int i;
     if(array!=NULL && sizeArray>0)
     {
-        for(i=0;i<sizeArray;i++)
+        for(i=0; i<sizeArray; i++)
         {
             if(array[i].idOrquesta==valorBuscado)                                                        //cambiar si no se busca por ID
             {
@@ -284,27 +284,29 @@ int orquesta_modificar(Orquesta array[], int sizeArray)                         
         else
         {
             do
-            {       //copiar printf de alta
+            {
+                //copiar printf de alta
                 printf("\n Posicion: %d\n ID: %d\n tipo: %d\n nombre: %s\n lugar: %s",
                        posicion, array[posicion].idOrquesta,array[posicion].tipo,array[posicion].nombre,array[posicion].lugar);
                 utn_getChar("\nModificar: A B C S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
-                    case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipo);           //mensaje + cambiar campo tipo
-                        break;
-                    case 'B':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
-                        break;
-                    case 'C':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].lugar);             //mensaje + cambiar campo lugar
-                        break;
-                    case 'S':
-                        break;
-                    default:
-                        printf("\nOpcion no valida");
+                case 'A':
+                    utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipo);           //mensaje + cambiar campo tipo
+                    break;
+                case 'B':
+                    utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
+                    break;
+                case 'C':
+                    utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].lugar);             //mensaje + cambiar campo lugar
+                    break;
+                case 'S':
+                    break;
+                default:
+                    printf("\nOpcion no valida");
                 }
-            }while(opcion!='S');
+            }
+            while(opcion!='S');
             retorno=0;
         }
     }
@@ -344,7 +346,8 @@ int orquesta_ordenarPorString(Orquesta array[],int size)                        
 
             j = i - 1;
             while ((j >= 0) && strcmp(bufferNombre,array[j].nombre)<0)         //cambiar campo nombre                 //Si tiene mas de un criterio se lo agrego, Ej. bufferTipo<array[j].tipo
-            {                                                                                                               //buffer < campo ascendente   buffer > campo descendente
+            {
+                //buffer < campo ascendente   buffer > campo descendente
                 strcpy(array[j + 1].nombre,array[j].nombre);          //cambiar campo nombre
                 array[j + 1].idOrquesta=array[j].idOrquesta;                                //cambiar campo id
                 array[j + 1].isEmpty=array[j].isEmpty;
@@ -378,19 +381,54 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar o
 {
     int retorno=-1;
     int i;
+    char tipoOrquesta [TEXT_SIZE];
     if(array!=NULL && size>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0; i<size; i++)
         {
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n tipo: %d\n nombre: %s\n lugar: %s",
-                       array[i].idOrquesta,array[i].tipo,array[i].nombre,array[i].lugar);      //cambiar todos
+            {
+                orquesta_tipo(array,tipoOrquesta,&i);
+                printf("\n ID: %d\n tipo: %s\n nombre: %s\n lugar: %s",
+                       array[i].idOrquesta,tipoOrquesta,array[i].nombre,array[i].lugar);
+            }
         }
         retorno=0;
     }
     return retorno;
 }
 
+int orquesta_tipo(Orquesta array[],char* tipoOrquesta, int* indice)
+{
+    int auxTipoOrquesta;
+    auxTipoOrquesta=array[*indice].tipo;
+    switch(auxTipoOrquesta)
+    {
+    case 1:
+        strcpy(tipoOrquesta, "Sinfónica");
+        break;
+    case 2:
+        strcpy(tipoOrquesta, "Filarmónica");
+        break;
+    case 3:
+        strcpy(tipoOrquesta, "Cámara");
+        break;
+    default:
+        strcpy(tipoOrquesta, "No definido");
+        break;
+    }
+    return 0;
+}
 
+int orquesta_imprimirById(Orquesta array[],int sizeOrquesta, int id)
+{
+    int posicionOrquesta;
+    orquesta_buscarID(array,sizeOrquesta,id,&posicionOrquesta);
+    char tipoOrquesta [TEXT_SIZE];
+    orquesta_tipo(array,tipoOrquesta,&posicionOrquesta);
+    printf("\n ID: %d\n tipo: %s\n nombre: %s\n lugar: %s",
+           array[posicionOrquesta].idOrquesta,tipoOrquesta,array[posicionOrquesta].nombre,array[posicionOrquesta].lugar);
+    return 0;
+}

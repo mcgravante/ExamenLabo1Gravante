@@ -14,7 +14,7 @@ typedef struct
     int idOrquesta;
     char apellido[TEXT_SIZE];
 
-}Musico;
+} Musico;
 
 
 #endif // MUSICO_H_INCLUDED
@@ -32,6 +32,6 @@ int musico_alta(Musico arrayMusico[], int sizeArrayMusico, int* contadorID,
 int musico_baja(Musico array[], int sizeArray, Instrumento arrayInstrumento[], int sizeArrayInstrumento);
 int musico_bajaValorRepetidoInt(Musico array[], int sizeArray, int valorBuscado);
 int musico_modificar(Musico array[], int sizeArray);
-int musico_ordenarPorString(Musico array[],int size);
+int musico_ordenarPorApellido(Musico array[],int size);
 int musico_listar(Musico array[], int size, Instrumento arrayInstrumento[], int sizeArrayInstrumento);
 
