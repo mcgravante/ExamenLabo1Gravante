@@ -2,39 +2,49 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Instrumento.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1114" topLine="11" />
+			<Cursor1 position="5797" topLine="148" />
 		</Cursor>
 	</File>
-	<File name="informes.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Orquesta.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="717" topLine="0" />
+			<Cursor1 position="1124" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Orquesta.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="15356" topLine="413" />
+			<Cursor1 position="14551" topLine="376" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Instrumento.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5266" topLine="136" />
+			<Cursor1 position="1150" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Musico.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14053" topLine="363" />
 		</Cursor>
 	</File>
 	<File name="informes.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8713" topLine="212" />
+			<Cursor1 position="16714" topLine="448" />
 		</Cursor>
 	</File>
-	<File name="Musico.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Musico.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="553" topLine="5" />
+			<Cursor1 position="1201" topLine="16" />
 		</Cursor>
 	</File>
-	<File name="utn_funciones.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Instrumento.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1770" topLine="19" />
+			<Cursor1 position="14529" topLine="383" />
+		</Cursor>
+	</File>
+	<File name="informes.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1190" topLine="5" />
 		</Cursor>
 	</File>
 	<File name="utn_funciones.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,19 +52,9 @@
 			<Cursor1 position="275" topLine="11" />
 		</Cursor>
 	</File>
-	<File name="Musico.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="utn_funciones.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="13053" topLine="330" />
-		</Cursor>
-	</File>
-	<File name="Orquesta.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1124" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="Instrumento.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="14529" topLine="374" />
+			<Cursor1 position="1770" topLine="19" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

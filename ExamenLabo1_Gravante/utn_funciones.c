@@ -6,16 +6,18 @@
 /*
 getString
 utn_getName
-utn_getNumero
-utn_getNumeroConSigno
-utn_getNumeroConDecimales
+utn_getUnsignedInt
+utn_getSignedInt
+utn_getFloat
 utn_getTelefono
 utn_getDNI
 utn_getCUIT
 utn_getEmail
 utn_getTexto
 utn_getAlfanumerico
-utn_getFecha
+utn_getChar
+utn_encontrarNumero
+utn_inicializarArrayInt
 */
 
 /*************************
@@ -82,13 +84,12 @@ int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, cha
     return retorno;
 }
 
-int isValidName(char* stringRecibido)   //si fuera un numero podrìa necesitar parametros para validar max y min
+int isValidName(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
-        //printf("%d",i);
         if(stringRecibido[i]<'0' || (stringRecibido[i]>'9'&& stringRecibido[i]<'A') ||
                 (stringRecibido[i]>'Z' && stringRecibido[i]<'a') || stringRecibido[i]>'z')//Arreglo para examen
         {
@@ -109,11 +110,11 @@ int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int mi
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidNumber(bufferStr)==1)
                 {
-                    *input=atoi(bufferStr);     // unsigned long int strtoul(const char *str, char **end, int base)?
+                    *input=atoi(bufferStr);
                     retorno=0;
                     break;
                 }
@@ -131,7 +132,7 @@ int utn_getUnsignedInt(  char* msg,char* msgError,int minSize,int maxSize,int mi
 
 int isValidNumber(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -153,11 +154,11 @@ int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int mi
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidSignedNumber(bufferStr)==1)
                 {
-                    *input=atoi(bufferStr); // atoi array to int
+                    *input=atoi(bufferStr);
                     retorno=0;
                     break;
                 }
@@ -175,7 +176,7 @@ int utn_getSignedInt(char* msg, char* msgError, int minSize, int maxSize, int mi
 
 int isValidSignedNumber(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -197,11 +198,11 @@ int utn_getFloat(char* msg, char* msgError, int minSize, int maxSize, int min, i
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidFloatNumber(bufferStr)==1)
                 {
-                    *input=atof(bufferStr); // atof array to float
+                    *input=atof(bufferStr);
                     retorno=0;
                     break;
                 }
@@ -219,7 +220,7 @@ int utn_getFloat(char* msg, char* msgError, int minSize, int maxSize, int min, i
 
 int isValidFloatNumber(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -241,7 +242,7 @@ int utn_getTelefono(char* msg, char* msgError, int minSize, int maxSize, int min
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidTelephone(bufferStr)==1)
                 {
@@ -263,7 +264,7 @@ int utn_getTelefono(char* msg, char* msgError, int minSize, int maxSize, int min
 
 int isValidTelephone(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -287,7 +288,7 @@ int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintent
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidDNI(bufferStr)==1)
                 {
@@ -309,7 +310,7 @@ int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintent
 
 int isValidDNI(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -334,7 +335,7 @@ int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input)
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidCUIT(bufferStr)==1)
                 {
@@ -356,7 +357,7 @@ int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input)
 
 int isValidCUIT(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     int j;
     char buffer[14];
@@ -364,7 +365,7 @@ int isValidCUIT(char* stringRecibido)
 
     for(i=0; buffer[i]!='\0'; i++)
     {
-        if((buffer[i]<'0' || buffer[i]>'9') && (buffer[i]!='-')) // chequeo que solo sean numeros o -
+        if((buffer[i]<'0' || buffer[i]>'9') && (buffer[i]!='-'))
         {
             retorno=0;
             break;
@@ -398,8 +399,6 @@ int isValidCUIT(char* stringRecibido)
     {
         retorno=0;
     }
-
-    //if(stringRecibido[2]!='-' || stringRecibido[11]!='-' || stringRecibido[0]!='2' || stringRecibido[1]!='0' || stringRecibido[1]!='3' || stringRecibido[1]!='4' || stringRecibido[1]!='7')
     return retorno;
 }
 
@@ -413,7 +412,7 @@ int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reinte
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidEmail(bufferStr)==1)
                 {
@@ -435,7 +434,7 @@ int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reinte
 
 int isValidEmail(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -459,7 +458,7 @@ int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reinte
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidTexto(bufferStr)==1)
                 {
@@ -481,7 +480,7 @@ int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reinte
 
 int isValidTexto(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -504,7 +503,7 @@ int utn_getAlfanumerico(char* msg, char* msgError, int minSize, int maxSize, int
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr))
             {
                 if(isValidAlphanumeric(bufferStr)==1)
                 {
@@ -526,7 +525,7 @@ int utn_getAlfanumerico(char* msg, char* msgError, int minSize, int maxSize, int
 
 int isValidAlphanumeric(char* stringRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     int i;
     for(i=0; stringRecibido[i]!='\0'; i++)
     {
@@ -550,7 +549,7 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
     {
         do
         {
-            if(!getString(msg,msgError,1,3,&reintentos,bufferChar)) //==0
+            if(!getString(msg,msgError,1,3,&reintentos,bufferChar))
             {
                 if(isValidChar(bufferChar[0])==1)
                 {
@@ -572,7 +571,7 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
 
 int isValidChar(char charRecibido)
 {
-    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;
     if(charRecibido<'A' || (charRecibido>'Z' && charRecibido<'a') || charRecibido>'z')
         retorno=0;
     return retorno;
@@ -595,7 +594,7 @@ int utn_encontrarNumero (   int *pArrayInt,
     return -1;
 }
 
-int utn_inicializarArrayInt(int array[], int size)                                    //cambiar instrumento
+int utn_inicializarArrayInt(int array[], int size)
 {
     int retorno=-1;
     int i;

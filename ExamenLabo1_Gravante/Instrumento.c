@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn_funciones.h"
-#include "Instrumento.h" //cambiar por nombre entidad
+#include "Instrumento.h"
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -13,7 +13,7 @@
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 *
 */
-int instrumento_Inicializar(Instrumento array[], int size)                                    //cambiar instrumento
+int instrumento_Inicializar(Instrumento array[], int size)
 {
     int retorno=-1;
     if(array!= NULL && size>0)
@@ -28,8 +28,7 @@ int instrumento_Inicializar(Instrumento array[], int size)                      
 }
 
 //*****************************************
-//Buscar
-//Int
+
 /** \brief Busca el primer lugar vacio en un array
 * \param array instrumento Array de instrumento
 * \param size int Tamaño del array
@@ -37,7 +36,7 @@ int instrumento_Inicializar(Instrumento array[], int size)                      
 * \return int Return (-1) si no encuentra un lugar vacio o Error [Invalid length or NULL pointer] - (0) si encuentra una posicion vacia
 *
 */
-int instrumento_buscarEmpty(Instrumento array[], int size, int* posicion)                    //cambiar instrumento
+int instrumento_buscarEmpty(Instrumento array[], int size, int* posicion)
 {
     int retorno=-1;
     int i;
@@ -339,22 +338,22 @@ int instrumento_ordenarPorString(Instrumento array[],int size)                  
 
 
             j = i - 1;
-            while ((j >= 0) && strcmp(bufferNombre,array[j].nombre)<0)         //cambiar campo nombre                 //Si tiene mas de un criterio se lo agrego, Ej. bufferTipo<array[j].tipo
+            while ((j >= 0) && strcmp(bufferNombre,array[j].nombre)<0)         //Si tiene mas de un criterio se lo agrego, Ej. bufferTipo<array[j].tipo
             {
-                //buffer < campo ascendente   buffer > campo descendente
-                strcpy(array[j + 1].nombre,array[j].nombre);          //cambiar campo nombre
-                array[j + 1].idInstrumento=array[j].idInstrumento;                                //cambiar campo id
+
+                strcpy(array[j + 1].nombre,array[j].nombre);
+                array[j + 1].idInstrumento=array[j].idInstrumento;
                 array[j + 1].isEmpty=array[j].isEmpty;
 
-                array[j + 1].tipo=array[j].tipo;                        //cambiar campo tipo
+                array[j + 1].tipo=array[j].tipo;
 
                 j--;
             }
-            strcpy(array[j + 1].nombre,bufferNombre);                     //cambiar campo nombre
-            array[j + 1].idInstrumento=bufferId;                                        //cambiar campo id
+            strcpy(array[j + 1].nombre,bufferNombre);
+            array[j + 1].idInstrumento=bufferId;
             array[j + 1].isEmpty=bufferIsEmpty;
 
-            array[j + 1].tipo=bufferTipo;                                                        //cambiar campo tipo
+            array[j + 1].tipo=bufferTipo;
         }
         retorno=0;
     }
@@ -369,7 +368,7 @@ int instrumento_ordenarPorString(Instrumento array[],int size)                  
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int instrumento_listar(Instrumento array[], int size)                      //cambiar instrumento
+int instrumento_listar(Instrumento array[], int size)
 {
     int retorno=-1;
     int i;
@@ -384,7 +383,7 @@ int instrumento_listar(Instrumento array[], int size)                      //cam
             {
                 instrumento_tipo(array,tipoInstrumento,&i);
                 printf("\n ID: %d\n tipo: %s\n nombre: %s\n",
-                       array[i].idInstrumento,tipoInstrumento,array[i].nombre);      //cambiar todos
+                       array[i].idInstrumento,tipoInstrumento,array[i].nombre);
             }
         }
         retorno=0;
